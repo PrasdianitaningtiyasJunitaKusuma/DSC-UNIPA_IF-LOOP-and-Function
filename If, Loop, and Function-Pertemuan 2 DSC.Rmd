@@ -1,0 +1,92 @@
+---
+title: "If, Loop, and Function"
+author: "Prasdianitaningtiyas Junita Kusuma"
+date: "September 27, 2019"
+output: html_document
+---
+
+```{r}
+x=1
+if (x==2)
+  {print("x=2")}
+
+#FOR LOOP
+##1
+for (i in 1:4) {print(i)}
+##2
+x <- c(2,5,3,9)
+for (val in x) {print(val)}
+##3
+a<-numeric(20) # generate empty a of length 20
+for (i in 1:20) {a[i]=i} # fill a with 1:20
+a
+```
+
+```{r}
+##Latihan
+b <- numeric(9)
+for (c in 2:10) {b[c-1]=c}
+b
+d <- numeric(8)
+for (e in 3:10) {d[e-2]=e}
+d
+```
+
+```{r}
+#WHILE LOOP
+f <- 1
+while (f<=4) 
+{print(f)
+  f=f+1}
+g <- numeric(20)
+h <- 1
+while (h <=20)
+{g[h]=h
+h=h+1}
+g
+```
+
+```{r}
+#REPEAT LOOP
+j <- 1
+repeat
+{print(j)
+  j = j+1
+  if (j>4) {break}}
+k <- numeric(20)
+l <- 1
+repeat{
+  k[l]=l
+  l=l+1
+  if (l>20){break}}
+k
+```
+
+```{r}
+i<-1
+while(i<=4){print(i)
+  i=i+1}
+A<-numeric (20) #generate empthy a of length 20
+r<-1
+while(r<=20){A[r]=r
+r=r+1}
+A
+##ATAU
+while(r<=20){A[r]=r;r=r+1}
+i<-1
+repeat{print(i);i=i+1;if(i>4){break}}
+a<-numeric (20)
+i<-1
+repeat{a[i]=i;i=i+1;if(i>20){break}}
+a
+```
+
+```{r}
+# FUNCTION
+Luas_lingkaran<-function(r)
+{a=pi*r^2;return(a)}  
+Luas_lingkaran(5)#CALL
+myfun<-function(x,a)
+{r1<-a*sin(x);r2<-a*cos(x);return(list(r1,r2))}
+myfun(2,4)
+```

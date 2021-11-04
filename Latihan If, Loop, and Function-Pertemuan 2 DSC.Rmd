@@ -1,0 +1,112 @@
+---
+title: "Latihan If, Loop, and Function-DSC Pertemuan 2"
+author: "Prasdianitaningtiyas Junita Kusuma"
+date: "September 27, 2019"
+output: html_document
+---
+
+```{r}
+data=rnorm(30,10,2)
+data
+```
+
+#Latihan 1
+```{r}
+j=1
+k=1
+p=numeric()
+r=numeric()
+for(i in 1:length(data))
+{
+  if (data[i]>=9)
+  {
+    p[j]=data[i]
+    j=j+1
+  }
+  else
+  {
+    r[k]=data[i]
+    k=k+1
+  }
+}
+#============================
+pisah=function(x,syarat)
+{
+  j=1
+  k=1
+  p=numeric()
+  r=numeric()
+  for(i in 1:length(x))
+  {
+    if (x[i]>=syarat)
+    {
+      p[j]=x[i]
+      j=j+1
+    }
+    else
+    {
+      r[k]=x[i]
+      k=k+1
+    }
+  }
+  return(list(data_1=p,data_2=r))
+}
+p=data[data>=9]
+r=data[data<9]
+pisah(data,9)
+```
+
+#Latihan 2
+```{r}
+jumlah=0
+varians=0
+for(i in 1:length(data))
+{
+  jumlah=jumlah+data[i]
+}
+rata=jumlah/length(data)
+for(i in 1:length(data))
+{
+  varians=varians+(data[i]-rata)^2
+}
+varians=varians/(length(data)-1)
+print(paste('jumlah =',round(jumlah,2)))
+print(paste('rata-rata =',round(rata,2)))
+print(paste('varians =',round(varians,2)))
+```
+
+##Atau
+```{r}
+latihan=function(x)
+{
+  jumlah=0
+  varians=0
+  for(i in 1:length(x))
+  {
+    jumlah=jumlah+x[i]
+  }
+  rata=jumlah/length(x)
+  for(i in 1:length(x))
+  {
+    varians=varians+(x[i]-rata)^2
+  }
+  varians=varians/(length(x)-1)
+  return(list(jumlah=round(jumlah,2),'rata-rata'=round(rata,2),varians=round(varians,2)))
+}
+latihan(data)
+```
+
+#Latihan 3
+```{r}
+bangkit_regresi=function(b1=9.5,e)
+{
+  n=length(e)
+  x=runif(30)
+  #x=c(1:n)
+  y=b1*x+e
+  return(list(x=x,y=y))
+}
+y=bangkit_regresi(9.5,data)$y
+latihan(y)
+```
+
